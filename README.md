@@ -1,6 +1,8 @@
 # somecss
 **SOMECSS** is a custom CSS methodology designed to unify and modernize styling practices within a collaborative development environment. By blending principles from SMACSS, BEM, and OOCSS, it offers a scalable, readable, and modular structure suited for both small and large projects.
-Read my story abouy this [here](https://medium.com/@tomy.grenier/somecss-a-scalable-hybrid-css-methodology-c435312cda7e).
+Read my story about this [here](https://medium.com/@tomy.grenier/somecss-a-scalable-hybrid-css-methodology-c435312cda7e).
+
+
 ## CSS File Structure (Inspired by SMACSS)
 
 We adopted SMACSS’s idea of breaking down stylesheets into logical, purpose-driven categories. This approach improves readability, makes it easier to scale a project, and simplifies onboarding for new developers. Each file serves a distinct role in organizing code by its intent rather than by its selector type, promoting separation of concerns and long-term maintainability.
