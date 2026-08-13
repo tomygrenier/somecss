@@ -1,55 +1,43 @@
-# somecss
-**SOMECSS** is a custom CSS methodology designed to unify and modernize styling practices within a collaborative development environment. By blending principles from SMACSS, BEM, and OOCSS, it offers a scalable, readable, and modular structure suited for both small and large projects.
-Read my story about this [here](https://medium.com/@tomy.grenier/somecss-a-scalable-hybrid-css-methodology-c435312cda7e).
+# SOMECSS Demo
 
+**[Lire en français](README.fr.md)**
 
-## CSS File Structure (Inspired by SMACSS)
+A working demonstration of the SOMECSS methodology, showing every convention from the article applied across two real pages rather than in isolated snippets.
 
-We adopted SMACSS’s idea of breaking down stylesheets into logical, purpose-driven categories. This approach improves readability, makes it easier to scale a project, and simplifies onboarding for new developers. Each file serves a distinct role in organizing code by its intent rather than by its selector type, promoting separation of concerns and long-term maintainability.
+- English article: [SOMECSS - A Scalable Hybrid CSS Methodology](https://medium.com/@tomy.grenier/somecss-a-scalable-hybrid-css-methodology-c435312cda7e)
+- Version fran&ccedil;aise : [SOMECSS - Une m&eacute;thodologie CSS hybride et &eacute;volutive](https://medium.com/@tomy.grenier/somecss-une-m%C3%A9thodologie-css-hybride-et-%C3%A9volutive-4acb3cb356a1)
 
-| File          | Purpose                                                          |
-| ------------- | ---------------------------------------------------------------- |
-| `base.css`    | Default element styles (typography, resets, etc.)                |
-| `layout.css`  | Global layout structures: `.header`, `.main`, `.footer`, `.grid` |
-| `modules.css` | Reusable components: `.card`, `.button`, `.form-field`, etc.     |
-| `states.css`  | UI states: `.is-open`, `.is-disabled`, `.has-error`, etc.        |
-| `themes.css`  | Theme variations: `.theme-dark`, `.button--danger`, etc.         |
+## Structure
 
-<sub>Table: SOMECSS CSS file structure, based on the SMACSS model</sub>
+```
+site-demo-github/
+├── index.html          Publications page: real-world use of the methodology
+├── components.html     Component library: every block/modifier/state in isolation
+├── fr/
+│   ├── index.html      French version of the Publications page
+│   └── components.html French version of the Component library page
+├── css/
+│   ├── base.css        Reset, typography, design tokens (custom properties)
+│   ├── layout.css      Page skeleton, demo-page helpers
+│   ├── modules.css     Reusable components (buttons, cards, modal, form, publications list)
+│   ├── states.css      is-/has- state classes and ARIA-driven states
+│   └── themes.css      Dark theme variant
+├── js/
+│   └── site.js          Minimal vanilla JS: theme toggle, modal, filter disclosure, search
+└── README.md
+```
 
----
+The `fr/` pages share the same `css/` and `js/` files as the root (English) pages, only the markup text differs. A language switch link is in the header nav of every page.
 
-## Naming Conventions (Hybrid of BEM and OOCSS)
+## What to look at
 
-### Blocks
+- **Cascade layers**: each CSS file declares its own `@layer`, matching the file structure. See the top of each file in `css/`.
+- **Naming conventions**: block-element (`.modal-title`), block--modifier (`.button--primary`), `is-`/`has-` states (`.is-empty`, `.has-error`).
+- **ARIA-driven states**: the filter toggle in the `index.html` sidebar, and the modal on both pages, style off `aria-expanded`/`aria-hidden` directly rather than duplicating the state in a class. See `css/states.css`.
+- **Contextual Class Pairing**: compare the standard `.publications-list` grid to its override inside `.publications-project`, in real context on `index.html`, and side-by-side for comparison on `components.html`. See `css/modules.css`.
+- **Design tokens**: all custom properties live in `css/base.css`. `css/themes.css` only overrides a subset of them for `[data-theme="dark"]`.
+- **Property order**: every rule block in `css/` follows the same box-model-first ordering described in the article.
 
-- When possible, prefer using **semantic HTML elements** (`section`, `article`, `nav`, `header`, `footer`, etc.) over generic class names like `.box`. This improves accessibility and code clarity. A contextual class — either structural or design-related — can then be used to refine the styling applied to that semantic element.
-- A block represents the main container of a component.
-- Example: `.card`, `.modal`, `.form`, `.button`
+## Running locally
 
-### Elements
-
-- Elements are not prefixed with their parent block name as in traditional BEM.
-- Use descriptive or role-based class names.
-- Example: `.card-title`, `.card-image`, `.form-label`, `.form-input`
-
-### Modifiers
-
-- Use `--modifier` syntax for variations.
-- Modifiers can apply to blocks or elements.
-- Example: `.card--highlighted`, `.button--primary`, `.form-input--error`
-
-### Structure vs Content Separation (Inspired by OOCSS)
-
-- Classes defining **structure** (layout, padding, margins, alignment) are kept separate from those that define **content** or semantics.
-- This separation enables better reuse of layout containers without coupling them to context or appearance.
-- Example:
-  - `.box` defines a container with padding, border, and layout
-  - `.media`, `.media-image`, `.media-body` represent a semantic pattern
-
-### States
-
-- Use `is-` and `has-` prefixes for state classes.
-- Example: `.is-visible`, `.is-disabled`, `.has-error`, `.has-icon`
-
----
+No build step. Open `index.html` directly in a browser, or serve the folder with any static file server.
