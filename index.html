@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOMECSS Demo &mdash; Publications</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/modules.css">
+<link rel="stylesheet" href="css/states.css">
+<link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+
+<div class="site-grid">
+
+  <header class="page-header">
+    <h1>Publications</h1>
+    <nav>
+      <a href="index.html">Publications</a>
+      &nbsp;&middot;&nbsp;
+      <a href="components.html">Components</a>
+      &nbsp;&middot;&nbsp;
+      <a href="fr/index.html">FR</a>
+    </nav>
+    <button class="button" id="theme-toggle" type="button">Toggle theme</button>
+  </header>
+
+  <aside class="page-sidebar">
+    <button class="button has-icon" type="button" aria-expanded="false" aria-controls="filter-panel" id="filter-toggle">
+      <svg class="filter-toggle-icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9 L12 15 L18 9" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+      Filters
+    </button>
+
+    <div class="form-field" id="filter-panel" aria-hidden="true">
+      <label class="form-label" for="search">Search</label>
+      <input class="form-input" type="text" id="search" placeholder="Search publications&hellip;">
+    </div>
+  </aside>
+
+  <main class="page-main">
+
+    <section>
+      <ul class="publications-list" id="publications-list">
+        <li class="card" data-title="Regional Land Use Patterns">
+          <h3 class="card-title">Regional Land Use Patterns</h3>
+          <p class="card-text">A study of land use change across the region since 1950.</p>
+          <button class="button button--primary" data-modal-target="publication-modal">Read more</button>
+        </li>
+        <li class="card card--highlighted" data-title="Historical Census Digitization">
+          <h3 class="card-title">Historical Census Digitization</h3>
+          <p class="card-text">Automated transcription methods for 19th-century census records.</p>
+          <button class="button button--primary" data-modal-target="publication-modal">Read more</button>
+        </li>
+        <li class="card" data-title="Urban Growth Mapping">
+          <h3 class="card-title">Urban Growth Mapping</h3>
+          <p class="card-text">Tracking urban expansion through historical maps and aerial photography.</p>
+          <button class="button button--primary" data-modal-target="publication-modal">Read more</button>
+        </li>
+      </ul>
+
+      <p class="is-empty" id="empty-state" aria-hidden="true">No publications match your search.</p>
+    </section>
+
+    <section class="publications-project">
+      <h2>Projects in Progress</h2>
+      <p>Publications tied to ongoing research display in a tighter, two-column layout, this is the Contextual Class Pairing described in the article: same <code>.publications-list</code> component, different grid behavior in this context.</p>
+      <ul class="publications-list">
+        <li class="card" data-title="Coastal Erosion Survey">
+          <h3 class="card-title">Coastal Erosion Survey</h3>
+          <p class="card-text">Fieldwork in progress, expected publication in 2027.</p>
+        </li>
+        <li class="card" data-title="Indigenous Place Names Atlas">
+          <h3 class="card-title">Indigenous Place Names Atlas</h3>
+          <p class="card-text">Collaborative mapping project, data collection ongoing.</p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>SOMECSS demo, built to accompany the SOMECSS methodology article.</p>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="publication-modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <header class="modal-header has-icon">
+      <svg class="modal-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+      <h2 class="modal-title" id="modal-title">Publication Details</h2>
+    </header>
+    <div class="modal-body">
+      <p class="modal-text">Full publication details would appear here.</p>
+    </div>
+    <footer class="modal-footer">
+      <button class="button button--primary" data-modal-close>Close</button>
+    </footer>
+  </div>
+</div>
+
+<script src="js/site.js"></script>
+</body>
+</html>

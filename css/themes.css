@@ -1,0 +1,16 @@
+@layer themes {
+  [data-theme="dark"] {
+    --color-primary: #6ea8fe;
+    --color-primary--dark: #4d8ef0;
+    --color-primary--light: #16324f;
+    --color-primary--inverse: #0b1420;
+
+    --color-neutral: #48545c;
+    --color-neutral--light: #1b2226;
+    --color-neutral--dark: #e7edf1;
+    --color-neutral--inverse: #232b30;
+
+    --color-danger: #ff6b6b;
+    --color-danger--light: #3a1f1f;
+  }
+}

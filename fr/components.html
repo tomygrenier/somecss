@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D&eacute;mo SOMECSS &mdash; Composants</title>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/modules.css">
+<link rel="stylesheet" href="../css/states.css">
+<link rel="stylesheet" href="../css/themes.css">
+</head>
+<body>
+
+<div class="site-grid">
+
+  <header class="page-header">
+    <h1>Biblioth&egrave;que de composants</h1>
+    <nav>
+      <a href="index.html">Publications</a>
+      &nbsp;&middot;&nbsp;
+      <a href="components.html">Composants</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../components.html">EN</a>
+    </nav>
+    <button class="button" id="theme-toggle" type="button">Changer de th&egrave;me</button>
+  </header>
+
+  <main class="page-main page-main--full">
+
+    <section>
+      <h2>Boutons</h2>
+      <p>Bloc de base <code>.button</code>, avec les modificateurs <code>--primary</code> et <code>--secondary</code>.</p>
+      <div class="demo-row">
+        <button class="button">Par d&eacute;faut</button>
+        <button class="button button--primary">Primaire</button>
+        <button class="button button--secondary">Secondaire</button>
+        <button class="button button--primary" disabled>D&eacute;sactiv&eacute;</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cartes</h2>
+      <p><code>.card</code> et son modificateur <code>--highlighted</code>.</p>
+      <ul class="publications-list">
+        <li class="card">
+          <h3 class="card-title">Carte par d&eacute;faut</h3>
+          <p class="card-text">Carte standard, sans modification.</p>
+        </li>
+        <li class="card card--highlighted">
+          <h3 class="card-title">Carte mise en &eacute;vidence</h3>
+          <p class="card-text">Utilise le modificateur <code>.card--highlighted</code>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Fen&ecirc;tre modale</h2>
+      <p>M&ecirc;me composant <code>.modal</code> que sur la page Publications, d&eacute;clench&eacute; ind&eacute;pendamment ici.</p>
+      <button class="button button--primary" data-modal-target="components-modal">Ouvrir la modale</button>
+    </section>
+
+    <section>
+      <h2>&Eacute;tats</h2>
+
+      <h3><code>.is-empty</code></h3>
+      <p class="is-empty">Aucun r&eacute;sultat &agrave; afficher.</p>
+
+      <h3><code>.has-error</code></h3>
+      <div class="form-field">
+        <label class="form-label" for="email">Courriel</label>
+        <input class="form-input form-input--error" type="email" id="email" value="pas-un-courriel">
+        <p class="has-error">Veuillez entrer une adresse courriel valide.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ic&ocirc;nes (<code>.has-icon</code>)</h2>
+      <p>Appliqu&eacute; &agrave; un bouton, un titre et un &eacute;l&eacute;ment de liste.</p>
+
+      <div class="demo-row">
+        <button class="button has-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+          Avec ic&ocirc;ne
+        </button>
+      </div>
+
+      <h3 class="has-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+        Titre avec ic&ocirc;ne
+      </h3>
+
+      <ul>
+        <li class="has-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+          &Eacute;l&eacute;ment de liste avec ic&ocirc;ne
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Mise en page : jumelage contextuel de classes</h2>
+      <p>Le m&ecirc;me composant <code>.publications-list</code> : grille standard sur trois colonnes &agrave; gauche, et son override <code>.publications-project</code> (deux colonnes) &agrave; droite, reprenant l'exemple de jumelage contextuel de classes de l'article.</p>
+
+      <div class="demo-compare">
+        <div>
+          <h3>Standard</h3>
+          <ul class="publications-list">
+            <li class="card"><h3 class="card-title">&Eacute;l&eacute;ment A</h3></li>
+            <li class="card"><h3 class="card-title">&Eacute;l&eacute;ment B</h3></li>
+            <li class="card"><h3 class="card-title">&Eacute;l&eacute;ment C</h3></li>
+          </ul>
+        </div>
+        <div class="publications-project">
+          <h3>Dans <code>.publications-project</code></h3>
+          <ul class="publications-list">
+            <li class="card"><h3 class="card-title">&Eacute;l&eacute;ment A</h3></li>
+            <li class="card"><h3 class="card-title">&Eacute;l&eacute;ment B</h3></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer page-main--full">
+    <p>D&eacute;mo SOMECSS, construite pour accompagner l'article sur la m&eacute;thodologie SOMECSS.</p>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="components-modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="components-modal-title">
+    <header class="modal-header has-icon">
+      <svg class="modal-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+      <h2 class="modal-title" id="components-modal-title">Titre de la modale</h2>
+    </header>
+    <div class="modal-body">
+      <p class="modal-text">Voici le m&ecirc;me composant modal que celui utilis&eacute; sur la page Publications.</p>
+    </div>
+    <footer class="modal-footer">
+      <button class="button button--primary" data-modal-close>Fermer</button>
+    </footer>
+  </div>
+</div>
+
+<script src="../js/site.js"></script>
+</body>
+</html>

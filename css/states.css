@@ -1,0 +1,25 @@
+@layer states {
+  [aria-hidden="true"] {
+    display: none;
+  }
+
+  [aria-expanded="true"] .filter-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .is-empty {
+    padding: var(--spacing-xl) var(--spacing-base);
+    text-align: center;
+    color: var(--color-neutral);
+  }
+
+  .has-error {
+    color: var(--color-danger);
+  }
+
+  .has-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+}

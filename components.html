@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOMECSS Demo &mdash; Components</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/modules.css">
+<link rel="stylesheet" href="css/states.css">
+<link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+
+<div class="site-grid">
+
+  <header class="page-header">
+    <h1>Component Library</h1>
+    <nav>
+      <a href="index.html">Publications</a>
+      &nbsp;&middot;&nbsp;
+      <a href="components.html">Components</a>
+      &nbsp;&middot;&nbsp;
+      <a href="fr/components.html">FR</a>
+    </nav>
+    <button class="button" id="theme-toggle" type="button">Toggle theme</button>
+  </header>
+
+  <main class="page-main page-main--full">
+
+    <section>
+      <h2>Buttons</h2>
+      <p>Base <code>.button</code> block, with <code>--primary</code> and <code>--secondary</code> modifiers.</p>
+      <div class="demo-row">
+        <button class="button">Default</button>
+        <button class="button button--primary">Primary</button>
+        <button class="button button--secondary">Secondary</button>
+        <button class="button button--primary" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cards</h2>
+      <p><code>.card</code> and its <code>--highlighted</code> modifier.</p>
+      <ul class="publications-list">
+        <li class="card">
+          <h3 class="card-title">Default card</h3>
+          <p class="card-text">Standard card, unmodified.</p>
+        </li>
+        <li class="card card--highlighted">
+          <h3 class="card-title">Highlighted card</h3>
+          <p class="card-text">Uses the <code>.card--highlighted</code> modifier.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Modal</h2>
+      <p>Same <code>.modal</code> component as on the Publications page, triggered independently here.</p>
+      <button class="button button--primary" data-modal-target="components-modal">Open modal</button>
+    </section>
+
+    <section>
+      <h2>States</h2>
+
+      <h3><code>.is-empty</code></h3>
+      <p class="is-empty">No results to display.</p>
+
+      <h3><code>.has-error</code></h3>
+      <div class="form-field">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input form-input--error" type="email" id="email" value="not-an-email">
+        <p class="has-error">Please enter a valid email address.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Icons (<code>.has-icon</code>)</h2>
+      <p>Applied to a button, a heading, and a list item.</p>
+
+      <div class="demo-row">
+        <button class="button has-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+          With icon
+        </button>
+      </div>
+
+      <h3 class="has-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+        Heading with icon
+      </h3>
+
+      <ul>
+        <li class="has-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+          List item with icon
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Layout: Contextual Class Pairing</h2>
+      <p>The same <code>.publications-list</code> component: standard three-column grid on the left, and its <code>.publications-project</code> override (two columns) on the right, matching the Contextual Class Pairing example in the article.</p>
+
+      <div class="demo-compare">
+        <div>
+          <h3>Standard</h3>
+          <ul class="publications-list">
+            <li class="card"><h3 class="card-title">Item A</h3></li>
+            <li class="card"><h3 class="card-title">Item B</h3></li>
+            <li class="card"><h3 class="card-title">Item C</h3></li>
+          </ul>
+        </div>
+        <div class="publications-project">
+          <h3>Inside <code>.publications-project</code></h3>
+          <ul class="publications-list">
+            <li class="card"><h3 class="card-title">Item A</h3></li>
+            <li class="card"><h3 class="card-title">Item B</h3></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer page-main--full">
+    <p>SOMECSS demo, built to accompany the SOMECSS methodology article.</p>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="components-modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="components-modal-title">
+    <header class="modal-header has-icon">
+      <svg class="modal-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2 L22 20 L2 20 Z" /></svg>
+      <h2 class="modal-title" id="components-modal-title">Modal Title</h2>
+    </header>
+    <div class="modal-body">
+      <p class="modal-text">This is the same modal component used on the Publications page.</p>
+    </div>
+    <footer class="modal-footer">
+      <button class="button button--primary" data-modal-close>Close</button>
+    </footer>
+  </div>
+</div>
+
+<script src="js/site.js"></script>
+</body>
+</html>
